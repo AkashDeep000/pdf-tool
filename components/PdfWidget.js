@@ -44,7 +44,7 @@ const handlePdfUpload = async (e) => {
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
-const response = await axios.post( 'http://pdf-api.ddns.net/upload',
+const response = await axios.post( '/pdf-api/upload',
 
   formData,
   {
@@ -152,7 +152,7 @@ const response = await axios.post( 'http://pdf-api.ddns.net/upload',
   </div>
     <a
     ref={dRef}
-    href ={`http://pdf-api.ddns.net/${pdfRes?.url}`}
+    href ={`/pdf-api/${pdfRes?.url}`}
       style={{
       display: "none",
   boxShadow: "0 0 .7rem rgba(96,0,43,0.12)",

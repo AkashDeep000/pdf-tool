@@ -1,6 +1,14 @@
 
 const webpack = require('webpack');
  module.exports = {
+   async rewrites() {
+     return [
+          {
+            source: '/pdf-api/:slug*',
+            destination: `http://pdf-api.ddns.net/:slug*`,
+          },
+        ]
+ },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
