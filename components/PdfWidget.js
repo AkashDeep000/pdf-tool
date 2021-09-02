@@ -49,9 +49,9 @@ const response = await axios.post( 'http://pdf-api.ddns.net/upload',
   formData,
   {
     timeout: 0,
-   /* headers: {
+   headers: {
               'Content-Type': `multipart/form-data`
-    },*/
+    },
     onUploadProgress: function( progressEvent ) {
       let progress = (progressEvent.loaded / progressEvent.total) * 100
       if (progress == 100) {
