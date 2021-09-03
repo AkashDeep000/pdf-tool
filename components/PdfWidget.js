@@ -5,6 +5,7 @@ import axios from "axios";
 export default function PdfWidget() {
   const [pdfFile, setPdfFile] = useState();
   const [pdfLimit, setPdfLimit] = useState(600);
+  const [grayPdf, setGrayPdf] = useState(false);
   const [uploadState, setUploadState] = useState("Compress PDF");
   const [pdfRes, setPdfRes] = useState()
   
@@ -14,7 +15,12 @@ export default function PdfWidget() {
   const dRef = useRef()
   
   const handlePdfFile = (e) => {
-    setPdfFile(e.target.files[0]);
+    if (e.target.files[0]?.name.endsWith(".pdf")) {
+      setPdfFile(e.target.files[0]);
+    }else{
+      alert("Not A PDF File")
+    }
+    
 if (uploadState == "Download Compressed PDF") {
     setUploadState("Compress PDF")
     dRef.current.style.display= "none"
@@ -30,6 +36,14 @@ if (uploadState == "Download Compressed PDF") {
   }
   }
   
+  const handlePdfGray = (e) => {
+    if (grayPdf) {
+      setGrayPdf(false)
+    } else if (!grayPdf) {
+      setGrayPdf(true)
+    }
+  }
+  
 const handlePdfUpload = async (e) => {
   e.preventDefault();
   if (pdfFile && (uploadState == "Compress PDF")) {
@@ -41,6 +55,7 @@ const handlePdfUpload = async (e) => {
 
   formData.append('pdfFile', pdfFile);
   formData.append('pdfLimit', pdfLimit);
+  formData.append('grayPdf', grayPdf);
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
@@ -94,7 +109,9 @@ const response = await axios.post( 'https://ze1f98200-z91a002ca-gtw.qovery.io/up
     
 }
 
+/*
 
+*/
 
   
   return (
@@ -104,37 +121,69 @@ const response = await axios.post( 'https://ze1f98200-z91a002ca-gtw.qovery.io/up
     <input type="file" name="pdg" className="pdfPicker" 
     onChange={handlePdfFile}
     />
+    <br/>
+    <br/>
+    <br/>
+<div>
       <label 
   style={{
-    display: "block",
     textAlign: "left",
-    marginTop: "1.4rem", 
+    fontSize: "1.1rem",
     float: "left",
-    display: "inlineBlock",
-    width: "calc(100% - 5rem)",
-    fontSize: "1rem",
-    paddingTop: ".5rem"
+    paddingTop: ".5rem",
    }} 
    for="fileSizeOption">Required PDF Size(In KB) :</label>
     <input
     style={{
-    float: "left",
-    display: "inlineBlock",
-    width: "4.2rem",
+    float: "right",
+    width: "4rem",
     height: "2.5rem",
-    fontSize: "1rem",
-    marginTop: "1.4rem", 
-    border: "1px solid #8080803e",
+    color:"inherit",
+    fontSize: "1.2rem",
+    border: "1px solid rgba(128,128,128,0.402)",
     }}
     type="text" name="fileSizeOption" className="pdfPickerFileSize" placeholder="Ex: 600"
     onChange={handlePdfLimit}
     value={pdfLimit}/>
-
+  </div>
+    <br/>
+    <br/>
+  
+  <div>
+  <p
+style={{
+display: "inlineBlock",
+    marginTop: "2rem",
+    textAlign: "left",
+    float: "left",
+    fontSize: "1.1rem",
+    
+   }} 
+   for="blackwhite">Black And White :<br/>(Reduce File Size)</p>
+<button
+onClick={handlePdfGray}
+style={{
+display: "inlineBlock",
+    marginLeft: "1rem",
+    float: "right",
+    marginTop: "2rem",
+    width: "2.5rem",
+    height: "2.5rem",
+    fontSize: "1rem",
+    background: "white",
+    border: "1px solid #8080803e",
+    fontSize: "1.6rem",
+    color: "#ff5c86"
+    }}>
+    {grayPdf ? "✓" : null}
+</button>
+</div>
+<br/>
   </div>
      <div
   ref= {ref}
   style= {{
-  opacity: "0",
+  opacity: "1",
   margin: "5rem 1rem 1rem 1rem",
   border: ".1rem solid #ff5c86",
   height: "1rem",
@@ -158,7 +207,7 @@ const response = await axios.post( 'https://ze1f98200-z91a002ca-gtw.qovery.io/up
   boxShadow: "0 0 .7rem rgba(96,0,43,0.12)",
     width: "auto",
     padding: ".5rem",
-    fontSize: "1.1rem",
+    fontSize: "1.2rem",
     fontWeight: "bold",
     color: "white",
     borderRadius: ".5rem",
@@ -186,7 +235,7 @@ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='52' height='26' viewBox
 textShadow: "0 0 2rem rgb(255,129,213)",
   }}>
   {uploadState == "Download Compressed PDF" ? "Reset" : uploadState}
-
+ {uploadState == "Uploading PDF" ?  (<div className="dotBricks"></div>) : null}
 
   </button>
     </div>

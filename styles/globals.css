@@ -17,7 +17,6 @@
 
 
 
-
 body {
   margin: 0 auto;
 }
@@ -119,7 +118,7 @@ text-shadow:0 0 2rem rgba(255,42,138,0.713);
   }
   .contentBody {
     box-shadow: 0 -.5rem 1rem rgba(0,0,0,0.086);
-    
+    background: rgba(0,0,0,0.01);
     padding: 1rem .8rem;
     
     
@@ -141,6 +140,7 @@ text-shadow:0 0 2rem rgba(255,42,138,0.713);
   .footer {
     background: rgb(245,245,245);
     grid-area: footer;
+    font-size: inherit;
     padding: 1rem;
     color: rgba(72,75,77,0.693) ;
   }
@@ -150,10 +150,11 @@ text-shadow:0 0 2rem rgba(255,42,138,0.713);
   
   
     .pdfWidget {
-      
+      margin: 0 auto;
+      max-width: 30rem;
     padding: 1rem;
     border-radius: .2rem;
-    box-shadow: 0 0 3rem rgba(0,0,0,0.10);
+    box-shadow: 0 0 3rem rgba(0,0,0,0.05);
     background: rgb(243,243,243);
   }
   .pdfPickerBox {
@@ -242,4 +243,62 @@ text-shadow:0 0 2rem rgba(255,42,138,0.713);
 @keyframes nprogress-spinner {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/*dot brick loading*/
+.dotBricks {
+  display: inline-block;
+  position: relative;
+  top: 0.4rem;
+  left: -9999px;
+  width: .5rem;
+  height: .5rem;
+  margin: 0 .5rem 0 1rem;
+  border-radius: 50%;
+  background-color: white;
+  color: white;
+  box-shadow: 9994px -.8rem 0 0 white, 9994px 0 0 0 white, 10007px 0 0 0 white;
+  animation: dotBricksKey 2s infinite ease;
+}
+
+@keyframes dotBricksKey {
+  0% {
+    box-shadow: 9994px -.8rem 0 0 white, 9994px 0 0 0 white, 10007px 0 0 0 white;
+  }
+  8.333% {
+    box-shadow: 10007px -.8rem 0 0 white, 9994px 0 0 0 white, 10007px 0 0 0 white;
+  }
+  16.667% {
+    box-shadow: 10007px -.8rem 0 0 white, 9994px -.8rem 0 0 white, 10007px 0 0 0 white;
+  }
+  25% {
+    box-shadow: 10007px -.8rem 0 0 white, 9994px -.8rem 0 0 white, 9994px 0 0 0 white;
+  }
+  33.333% {
+    box-shadow: 10007px 0 0 0 white, 9994px -.8rem 0 0 white, 9994px 0 0 0 white;
+  }
+  41.667% {
+    box-shadow: 10007px 0 0 0 white, 10007px -.8rem 0 0 white, 9994px 0 0 0 white;
+  }
+  50% {
+    box-shadow: 10007px 0 0 0 white, 10007px -.8rem 0 0 white, 9994px -.8rem 0 0 white;
+  }
+  58.333% {
+    box-shadow: 9994px 0 0 0 white, 10007px -.8rem 0 0 white, 9994px -.8rem 0 0 white;
+  }
+  66.666% {
+    box-shadow: 9994px 0 0 0 white, 10007px 0 0 0 white, 9994px -.8rem 0 0 white;
+  }
+  75% {
+    box-shadow: 9994px 0 0 0 white, 10007px 0 0 0 white, 10007px -.8rem 0 0 white;
+  }
+  83.333% {
+    box-shadow: 9994px -.8rem 0 0 white, 10007px 0 0 0 white, 10007px -.8rem 0 0 white;
+  }
+  91.667% {
+    box-shadow: 9994px -.8rem 0 0 white, 9994px 0 0 0 white, 10007px -.8rem 0 0 white;
+  }
+  100% {
+    box-shadow: 9994px -.8rem 0 0 white, 9994px 0 0 0 white, 10007px 0 0 0 white;
+  }
 }
