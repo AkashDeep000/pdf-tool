@@ -59,7 +59,7 @@ const handlePdfUpload = async (e) => {
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
-const response = await axios.post( 'http://ze1f98200-z6a78db83-gtw.qovery.io/upload',
+const response = await axios.post( 'https://ze1f98200-z91a002ca-gtw.qovery.io/upload',
 
   formData,
   {
