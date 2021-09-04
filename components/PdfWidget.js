@@ -59,7 +59,7 @@ const handlePdfUpload = async (e) => {
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
-const response = await axios.post( 'https://ze1f98200-z91a002ca-gtw.qovery.io/upload',
+const response = await axios.post( 'http://pdf-api.ddns.net/upload',
 
   formData,
   {
@@ -159,7 +159,7 @@ display: "inlineBlock",
     fontSize: "1.1rem",
     
    }} 
-   for="blackwhite">Black And White :<br/>(Reduce File Size)</p>
+   for="blackwhite">Black And White :<br/>(This will be SLOW)</p>
 <button
 onClick={handlePdfGray}
 style={{
@@ -201,7 +201,7 @@ display: "inlineBlock",
   </div>
     <a
     ref={dRef}
-    href ={`https://ze1f98200-z91a002ca-gtw.qovery.io/${pdfRes?.url}`}
+    href ={`${pdfRes?.url}`}
       style={{
       display: "none",
   boxShadow: "0 0 .7rem rgba(96,0,43,0.12)",
