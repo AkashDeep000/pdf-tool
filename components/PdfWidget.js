@@ -59,7 +59,7 @@ const handlePdfUpload = async (e) => {
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
-const response = await axios.post( 'http://pdf-api.ddns.net/upload',
+const response = await axios.post( 'http://ze1f98200-z6a78db83-gtw.qovery.io/upload',
 
   formData,
   {
@@ -183,7 +183,7 @@ display: "inlineBlock",
      <div
   ref= {ref}
   style= {{
-  opacity: "1",
+  opacity: "0",
   margin: "5rem 1rem 1rem 1rem",
   border: ".1rem solid #ff5c86",
   height: "1rem",

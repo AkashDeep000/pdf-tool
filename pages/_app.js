@@ -9,10 +9,7 @@ function MyApp({ Component, pageProps }) {
 <link rel="preconnect" href="https://cdn.statically.io/" />
 <link rel="dns-prefetch" href="https://cdn.statically.io/" />
 
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
- <script src="https://cdn.jsdelivr.net/npm/eruda-dom"></script>
-<script>eruda.init();eruda.add(erudaDom);
-</script>
+
 
  </Head>
 
