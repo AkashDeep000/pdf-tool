@@ -201,7 +201,7 @@ display: "inlineBlock",
   </div>
     <a
     ref={dRef}
-    href ={`http://localhost:5000/${pdfRes?.url}`}
+    href ={`${pdfRes?.url}`}
       style={{
       display: "none",
   boxShadow: "0 0 .7rem rgba(96,0,43,0.12)",
