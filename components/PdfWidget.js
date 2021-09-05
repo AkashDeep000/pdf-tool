@@ -5,7 +5,7 @@ import axios from "axios";
 export default function PdfWidget() {
   const [pdfFile, setPdfFile] = useState();
   const [pdfLimit, setPdfLimit] = useState(600);
-  const [grayPdf, setGrayPdf] = useState(false);
+  const [pdfGray, setPdfGray] = useState(false);
   const [uploadState, setUploadState] = useState("Compress PDF");
   const [pdfRes, setPdfRes] = useState()
   
@@ -37,10 +37,10 @@ if (uploadState == "Download Compressed PDF") {
   }
   
   const handlePdfGray = (e) => {
-    if (grayPdf) {
-      setGrayPdf(false)
-    } else if (!grayPdf) {
-      setGrayPdf(true)
+    if (pdfGray) {
+      setPdfGray(false)
+    } else if (!pdfGray) {
+      setPdfGray(true)
     }
   }
   
@@ -55,7 +55,7 @@ const handlePdfUpload = async (e) => {
 
   formData.append('pdfFile', pdfFile);
   formData.append('pdfLimit', pdfLimit);
-  formData.append('grayPdf', grayPdf);
+  formData.append('pdfGray', pdfGray);
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
@@ -175,7 +175,7 @@ display: "inlineBlock",
     fontSize: "1.6rem",
     color: "#ff5c86"
     }}>
-    {grayPdf ? "✓" : null}
+    {pdfGray ? "✓" : null}
 </button>
 </div>
 <br/>
@@ -201,7 +201,7 @@ display: "inlineBlock",
   </div>
     <a
     ref={dRef}
-    href ={`${pdfRes?.url}`}
+    href ={`http://localhost:5000/${pdfRes?.url}`}
       style={{
       display: "none",
   boxShadow: "0 0 .7rem rgba(96,0,43,0.12)",
