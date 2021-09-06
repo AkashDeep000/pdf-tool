@@ -61,7 +61,7 @@ const handlePdfUpload = async (e) => {
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
-const response = await axios.post( 'http://13.234.31.48:5000/upload',
+const response = await axios.post( '/pdf-api/upload',
 
   formData,
   {

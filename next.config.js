@@ -5,7 +5,7 @@ const webpack = require('webpack');
      return [
           {
             source: '/pdf-api/:slug*',
-            destination: `http://pdf-api.ddns.net/:slug*`,
+            destination: `http://13.234.31.48/:slug*`,
           },
         ]
  },
