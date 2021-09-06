@@ -17,6 +17,7 @@ export default function PdfWidget() {
   const handlePdfFile = (e) => {
     if (e.target.files[0]?.name.endsWith(".pdf")) {
       setPdfFile(e.target.files[0]);
+      console.log(e.target.files[0])
     }else{
       alert("Not A PDF File")
     }
@@ -49,17 +50,18 @@ const handlePdfUpload = async (e) => {
   if (pdfFile && (uploadState == "Compress PDF")) {
   ref.current.style.opacity= "1"    
   setUploadState("Uploading PDF");
+  console.log(pdfFile)
 //Initialize the form data
   let formData = new FormData();
 // Add the form data we need to submt
-
+ 
   formData.append('pdfFile', pdfFile);
   formData.append('pdfLimit', pdfLimit);
   formData.append('pdfGray', pdfGray);
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
-const response = await axios.post( 'https://ze1f98200-z91a002ca-gtw.qovery.io/upload',
+const response = await axios.post( 'http://13.234.31.48:5000/upload',
 
   formData,
   {
