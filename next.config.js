@@ -5,7 +5,7 @@ const webpack = require('webpack');
      return [
           {
             source: '/pdf-api/:slug*',
-            destination: `http://13.234.31.48/:slug*`,
+            destination: `https://f4b9-172-83-13-4.ngrok.io/:slug*`,
           },
         ]
  },
