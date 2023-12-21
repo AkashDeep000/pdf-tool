@@ -61,7 +61,7 @@ const handlePdfUpload = async (e) => {
 //Make the request to the POST /single-file URL
   
 // const response = await axios.post( 'http://15.207.86.194:5000/upload',
-const response = await axios.post( 'https://pdf-api.mobcd.com/upload',
+const response = await axios.post( 'https://pdf-api-q4h4.onrender.com/upload',
 
   formData,
   {
